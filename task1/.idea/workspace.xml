@@ -1,86 +1,294 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="AutoImportSettings">
-    <option name="autoReloadType" value="SELECTIVE" />
+  <component name="CMakeSettings">
+    <configurations>
+      <configuration PROFILE_NAME="Debug" ENABLED="true" CONFIG_NAME="Debug" />
+    </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cc04ce41-ba93-4d4e-a3da-449bef6d54b4" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/task1.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+    <list default="true" id="c589ab8e-a05e-4929-95d8-35186e74fed8" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/1.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run-test-data.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t1/ans.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t1/input.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t1/out.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t1/tests/1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t1/tests/10.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t1/tests/11.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t1/tests/12.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t1/tests/13.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t1/tests/14.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t1/tests/2.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t1/tests/3.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t1/tests/4.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t1/tests/5.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t1/tests/6.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t1/tests/7.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t1/tests/8.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t1/tests/9.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/test-data/t2/ans.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test-data/t2/input.txt" beforeDir="false" afterPath="$PROJECT_DIR$/input.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/input.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/test-data/t2/out.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/10.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/100.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/101.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/102.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/103.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/104.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/105.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/106.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/107.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/108.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/109.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/11.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/110.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/111.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/112.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/113.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/114.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/115.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/116.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/117.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/118.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/119.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/12.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/120.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/121.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/122.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/123.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/124.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/125.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/126.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/127.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/128.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/129.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/13.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/130.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/131.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/132.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/133.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/134.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/135.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/136.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/137.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/138.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/139.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/14.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/140.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/141.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/142.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/143.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/144.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/145.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/146.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/147.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/148.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/149.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/15.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/150.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/151.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/152.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/153.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/154.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/155.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/156.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/157.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/158.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/159.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/16.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/160.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/161.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/162.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/163.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/164.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/165.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/166.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/167.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/168.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/169.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/17.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/170.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/171.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/172.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/173.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/174.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/175.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/176.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/177.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/178.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/179.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/18.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/180.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/181.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/182.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/183.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/184.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/185.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/186.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/187.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/188.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/189.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/19.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/190.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/191.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/192.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/193.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/194.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/195.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/196.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/2.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/20.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/21.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/22.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/23.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/24.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/25.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/26.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/27.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/28.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/29.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/3.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/30.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/31.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/32.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/33.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/34.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/35.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/36.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/37.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/38.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/39.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/4.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/40.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/41.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/42.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/43.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/44.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/45.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/46.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/47.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/48.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/49.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/5.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/50.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/51.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/52.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/53.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/54.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/55.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/56.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/57.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/58.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/59.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/6.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/60.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/61.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/62.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/63.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/64.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/65.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/66.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/67.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/68.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/69.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/7.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/70.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/71.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/72.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/73.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/74.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/75.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/76.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/77.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/78.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/79.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/8.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/80.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/81.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/82.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/83.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/84.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/85.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/86.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/87.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/88.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/89.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/9.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/90.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/91.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/92.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/93.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/94.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/95.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/96.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/97.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/98.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-data/t2/tests/99.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../task2/2.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../task2/run-test-data.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../task2/test-data/t1/ans.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../task2/test-data/t1/input.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../task2/test-data/t1/out.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../task2/test-data/t2/ans.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../task2/test-data/t2/input.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../task2/test-data/t2/out.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../task2/test-data/t3/ans.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../task2/test-data/t3/input.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../task2/test-data/t3/out.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../task2/test-data/t4/ans.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../task2/test-data/t4/input.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../task2/test-data/t4/out.txt" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 5
+  "associatedIndex": 1
 }]]></component>
-  <component name="ProjectId" id="2m4i0qogO0AjmiHxJOiK43cEhI9" />
+  <component name="ProjectId" id="2mz0wgrzKHDnfwJvrQDQHaCbxxU" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Python.1.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "hw1",
-    "last_opened_file_path": "/Users/ivangrebenkin/Documents/FL/fl2024/task1"
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "RunOnceActivity.readMode.enableVisualFormatting": "true",
+    "cf.advertisement.text.has.clang-format": "true",
+    "cf.first.check.clang-format": "false",
+    "cidr.known.project.marker": "true",
+    "git-widget-placeholder": "hw2",
+    "last_opened_file_path": "/Users/ivangrebenkin/Documents/FL/fl2024/task1",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/test-data/t2/tests" />
-      <recent name="$PROJECT_DIR$/test-data" />
-      <recent name="$PROJECT_DIR$/test-data/t4" />
-      <recent name="$PROJECT_DIR$/test-data/t3" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/test-data/t2/tests" />
-      <recent name="$PROJECT_DIR$/test-data/t3/tests" />
-      <recent name="$PROJECT_DIR$/test-data/t4/tests" />
-      <recent name="$PROJECT_DIR$/test-data" />
-      <recent name="$PROJECT_DIR$/test-data/t1/tests" />
-    </key>
-  </component>
-  <component name="SharedIndexes">
-    <attachedChunks>
-      <set>
-        <option value="bundled-python-sdk-5a2391486177-d3b881c8e49f-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-233.13763.11" />
-      </set>
-    </attachedChunks>
-  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="cc04ce41-ba93-4d4e-a3da-449bef6d54b4" name="Changes" comment="" />
-      <created>1726342028492</created>
+      <changelist id="c589ab8e-a05e-4929-95d8-35186e74fed8" name="Changes" comment="" />
+      <created>1728064337807</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1726342028492</updated>
+      <updated>1728064337807</updated>
+      <workItem from="1728064338792" duration="12000" />
     </task>
     <servers />
   </component>
-  <component name="XDebuggerManager">
-    <watches-manager>
-      <configuration name="PythonConfigurationType">
-        <watch expression="layer" language="Python" />
-        <watch expression="new_layer" language="Python" />
-      </configuration>
-    </watches-manager>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
 </project>

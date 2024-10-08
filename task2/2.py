@@ -81,9 +81,9 @@ def solve():
     instructions = parse(input())
     instructions.append(Instruction("match"))
 
-    print_instructions(instructions)
+    # print_instructions(instructions)
 
     return check(instructions, 0, input())
 
 
-print(solve(), end='')
+print(solve())

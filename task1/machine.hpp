@@ -20,10 +20,11 @@ namespace machine {
         std::vector <Node> nodes;
         std::vector<bool> deleted_nodes;
 
-        static bool read_line(std::set<int> &data);
-        void read();
+        static bool read_line(std::set<int> &data, std::istream &is);
+        void read(std::istream &is);
         void write();
 
+        void build_after_delete();
         void dfs(const Node &v, const std::vector <Node> &graph, std::vector<bool> &used);
         void delete_states(const std::set<int> &start, const std::vector <Node> &graph);
 
@@ -79,7 +80,7 @@ namespace machine {
 
     void solve();
     void solve_minimize();
-    void solve_equivalent();
+    void solve_equivalent(/*std::istream &is1, std::istream &is2*/);
     void solve_universal();
 }
 

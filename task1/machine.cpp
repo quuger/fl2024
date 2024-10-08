@@ -6,12 +6,13 @@
 #include <sstream>
 #include <set>
 #include <queue>
+#include <fstream>
 #include "machine.hpp"
 
 namespace machine {
-    bool Machine::read_line(std::set<int> &data) {
+    bool Machine::read_line(std::set<int> &data, std::istream &is = std::cin) {
         std::string line;
-        std::getline(std::cin, line);
+        std::getline(is, line);
         std::stringstream ss(line);
         for (int id; ss >> id;) {
             data.insert(id);
@@ -19,19 +20,23 @@ namespace machine {
         return !data.empty();
     }
 
-    void Machine::read() {
-        std::cin >> n >> m;
-        std::cin.ignore();
+    void Machine::read(std::istream &is = std::cin) {
+        is >> n >> m;
+        is.ignore();
         read_line(start_nodes);
         read_line(end_nodes);
 
         nodes.resize(n);
+        deleted_nodes.resize(n, false);
 
         for (auto i: end_nodes) {
             nodes[i].is_end = true;
         }
-        for (std::vector<int> data(3); std::cin >> data[0] >> data[1] >> data[2];) {
+        for (std::vector<int> data(3); is >> data[0] >> data[1] >> data[2];) {
             nodes[data[0]].adjacent[data[1]].insert(data[2]);
+        }
+        for (int i = 0; i < n; ++i) {
+            nodes[i].id = i;
         }
     }
 
@@ -95,6 +100,51 @@ namespace machine {
         dfa.simplify();
     }
 
+    void Machine::build_after_delete() {
+        if (deleted_nodes[*start_nodes.begin()]) {
+            n = 0;
+            m = 0;
+            start_nodes.clear();
+            end_nodes.clear();
+            nodes.clear();
+            deleted_nodes.clear();
+            return;
+        }
+
+        std::vector <Node> new_nodes;
+        std::map<int, int> old_id_to_new;
+        for (int i = 0; i < n; ++i) {
+            if (deleted_nodes[i]) {
+                end_nodes.erase(i);
+                continue;
+            }
+            old_id_to_new[i] = static_cast<int>(new_nodes.size());
+            new_nodes.push_back({old_id_to_new[i], nodes[i].is_end, {}});
+            for (auto [symbol, ids]: nodes[i].adjacent) {
+                if (!deleted_nodes[*ids.begin()]) { // ids.size() is always 1
+                    new_nodes.back().adjacent[symbol] = ids;
+                }
+            }
+        }
+        for (auto &node: new_nodes) {
+            for (auto &[symbol, ids]: node.adjacent) {
+                ids = {old_id_to_new[*ids.begin()]};
+            }
+        }
+        n = new_nodes.size();
+        nodes = std::move(new_nodes);
+
+        std::set<int> new_end_nodes;
+        for (auto i: end_nodes) {
+            new_end_nodes.insert(old_id_to_new[i]);
+        }
+        end_nodes = std::move(new_end_nodes);
+
+        start_nodes = {old_id_to_new[*start_nodes.begin()]};
+
+        deleted_nodes.assign(n, false);
+    }
+
     void Machine::dfs(const Node &v, const std::vector <Node> &graph, std::vector<bool> &used) {
         used[v.id] = true;
         for (const auto &[symbol, nodes_id]: v.adjacent) {
@@ -112,7 +162,7 @@ namespace machine {
         auto reversed_nodes = build_reverse_graph();
         delete_states(end_nodes, reversed_nodes); // dead
 
-        n = nodes.size();
+        build_after_delete();
     }
 
     void Machine::delete_states(const std::set<int> &start, const std::vector <Node> &graph) {
@@ -176,11 +226,17 @@ namespace machine {
         std::set<int> new_end_nodes;
         for (int i = 0; i < n; ++i) {
             for (int symbol = 0; symbol < m; ++symbol) {
-                new_nodes[components[i]].adjacent[symbol].insert(nodes[i].adjacent[symbol].begin(),
-                                                                 nodes[i].adjacent[symbol].end());
+                for (int id: nodes[i].adjacent[symbol]) {
+                    new_nodes[components[i]].adjacent[symbol].insert(components[id]);
+                }
             }
             new_nodes[components[i]].is_end |= nodes[i].is_end;
         }
+
+        for (int i = 0; i < component_count; ++i) {
+            new_nodes[i].id = i;
+        }
+
         for (const auto& node: new_nodes) {
             if (node.is_end) {
                 new_end_nodes.insert(node.id);
@@ -216,7 +272,7 @@ namespace machine {
                 }
             }
         }
-        build_dfa(components, component_count);
+        build_dfa(components, ++component_count);
     }
 
     bool operator==(Machine &lhs, Machine &rhs) {
@@ -242,10 +298,11 @@ namespace machine {
     void solve_minimize() {
         Machine dfa;
         dfa.read();
+        dfa.minimize();
         dfa.write();
     }
 
-    void solve_equivalent() {
+    void solve_equivalent(/*std::istream &is1, std::istream &is2*/) {
         Machine dfa1, dfa2;
         dfa1.read();
         dfa2.read();

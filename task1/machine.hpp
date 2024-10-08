@@ -80,7 +80,7 @@ namespace machine {
 
     void solve();
     void solve_minimize();
-    void solve_equivalent(/*std::istream &is1, std::istream &is2*/);
+    void solve_equivalent(std::istream &is1, std::istream &is2);
     void solve_universal();
 }
 

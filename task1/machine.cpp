@@ -23,8 +23,8 @@ namespace machine {
     void Machine::read(std::istream &is = std::cin) {
         is >> n >> m;
         is.ignore();
-        read_line(start_nodes);
-        read_line(end_nodes);
+        read_line(start_nodes, is);
+        read_line(end_nodes, is);
 
         nodes.resize(n);
         deleted_nodes.resize(n, false);
@@ -302,10 +302,14 @@ namespace machine {
         dfa.write();
     }
 
-    void solve_equivalent(/*std::istream &is1, std::istream &is2*/) {
+    void solve_equivalent(std::istream &is1, std::istream &is2) {
         Machine dfa1, dfa2;
-        dfa1.read();
-        dfa2.read();
+        dfa1.read(is1);
+        dfa2.read(is2);
+
+        dfa1.minimize();
+        dfa2.minimize();
+
         std::cout << std::boolalpha << (dfa1 == dfa2);
     }
 

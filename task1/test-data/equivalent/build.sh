@@ -1,0 +1,1 @@
+g++ -std=c++20 ../../machine.cpp ../../equivalent_main.cpp -o solution.out

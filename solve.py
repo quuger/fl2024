@@ -1,8 +1,8 @@
 import sys
 from antlr4 import *
-from first.GrammarLexer import GrammarLexer
-from first.GrammarParser import GrammarParser
-from first.GrammarVisitor import GrammarVisitor
+from dist.GrammarLexer import GrammarLexer
+from dist.GrammarParser import GrammarParser
+from dist.GrammarVisitor import GrammarVisitor
 
 
 class Instruction:

@@ -1,9 +1,12 @@
 grammar Grammar;
 
-start: expr EOF;
+start: word EOF;
 
-expr:    left=expr '|' right=expr   # orExpr
-    |   left=expr right=expr       # concExpr
+word: left=expr '|' right=word     # orExpr
+    | expr                         # exprExpr
+    ;
+
+expr:   left=expr right=expr       # concExpr
     |   atom '?'                   # quesExpr
     |   atom '*'                   # starExpr
     |   atom '+'                   # plusExpr

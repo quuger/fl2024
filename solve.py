@@ -14,7 +14,7 @@ class Instruction:
 class CalcVisitor(GrammarVisitor):
     line = 0
     def visitStart(self, ctx):
-        result =  self.visit(ctx.expr())
+        result =  self.visit(ctx.word())
         self.line += 1
         return result + [Instruction("match")]
 
@@ -23,13 +23,13 @@ class CalcVisitor(GrammarVisitor):
         self.line += 1
         first = self.visit(ctx.left)
 
-        second_begin = self.line + 1
+        second_begin = first_begin + len(first) + 1
         self.line += 1
         second = self.visit(ctx.right)
 
         result = [Instruction("split", (first_begin, second_begin))]
         result.extend(first)
-        result.append(Instruction("jmp", second_begin + len(second) + 1))
+        result.append(Instruction("jmp", second_begin + len(second)))
         result.extend(second)
 
         return result

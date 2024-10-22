@@ -75,9 +75,9 @@ class CalcVisitor(GrammarVisitor):
     def visitStarExpr(self, ctx):
         old_line = self.line
         self.line += 1
-        fisrt = self.visit(ctx.getChild(0))
+        first = self.visit(ctx.getChild(0))
         result = [Instruction("split", (old_line + 1, self.line + 1))]
-        result.extend(fisrt)
+        result.extend(first)
         result.append(Instruction("jmp", old_line))
         self.line += 1
         return result
@@ -100,7 +100,7 @@ class CalcVisitor(GrammarVisitor):
         return self.visit(ctx.unionExp())
 
 
-def calc() -> float:
+def calc():
     stream = InputStream(regular)
 
     lexer = GrammarLexer(stream)

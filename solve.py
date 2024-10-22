@@ -1,58 +1,9 @@
 import sys
 from antlr4 import *
-from dist.CalculantlrLexer import CalculantlrLexer
-from dist.CalculantlrParser import CalculantlrParser
-from dist.CalculantlrVisitor import CalculantlrVisitor
+from first.GrammarLexer import GrammarLexer
+from first.GrammarParser import GrammarParser
+from first.GrammarVisitor import GrammarVisitor
 
-
-class CalcVisitor(CalculantlrVisitor):
-    def visitAtomExpr(self, ctx:CalculantlrParser.AtomExprContext):
-        return int(ctx.getText())
-
-    def visitParenExpr(self, ctx:CalculantlrParser.ParenExprContext):
-        return self.visit(ctx.expr())
-
-    def visitOpExpr(self, ctx:CalculantlrParser.OpExprContext):
-        l = self.visit(ctx.left)
-        r = self.visit(ctx.right)
-
-        op = ctx.op.text
-        if op == '+':
-            return l + r
-        elif op == '-':
-            return l - r
-        elif op == '*':
-            return l * r
-        elif op == '/':
-            if r == 0:
-                print('divide by zero!')
-                return 0
-            return l / r
-
-
-
-def calc(line) -> float:
-    input_stream = InputStream(line)
-
-    # lexing
-    lexer = CalculantlrLexer(input_stream)
-    stream = CommonTokenStream(lexer)
-
-    # parsing
-    parser = CalculantlrParser(stream)
-    tree = parser.expr()
-
-    # use customized visitor to traverse AST
-    visitor = CalcVisitor()
-    return visitor.visit(tree)
-
-
-
-if __name__ == '__main__':
-    while True:
-        print(">>> ", end='')
-        line = input()
-        print(calc(line))
 
 class Instruction:
     def __init__(self, command, args=None):
@@ -60,61 +11,82 @@ class Instruction:
         self.args = args
 
 
-def print_instructions(result):
+class CalcVisitor(GrammarVisitor):
     line = 0
-    for instruction in result:
-        if instruction.command == "split":
-            print(line, "split", instruction.args[0], instruction.args[1])
-        else:
-            print(line, instruction.command,
-                  instruction.args if instruction.args is not None else "")
-        line += 1
+    def visitStart(self, ctx):
+        result =  self.visit(ctx.expr())
+        self.line += 1
+        return result + [Instruction("match")]
+
+    def visitOrExpr(self, ctx):
+        first_begin = self.line + 1
+        self.line += 1
+        first = self.visit(ctx.left)
+
+        second_begin = self.line + 1
+        self.line += 1
+        second = self.visit(ctx.right)
+
+        result = [Instruction("split", (first_begin, second_begin))]
+        result.extend(first)
+        result.append(Instruction("jmp", second_begin + len(second) + 1))
+        result.extend(second)
+
+        return result
+
+    def visitConcExpr(self, ctx):
+        first = self.visit(ctx.getChild(0))
+        second = self.visit(ctx.getChild(1))
+        return first + second
+
+    def visitQuesExpr(self, ctx):
+        old_line = self.line + 1
+        self.line += 1
+        first = self.visit(ctx.getChild(0))
+
+        result = [Instruction("split", (old_line, old_line + len(first)))]
+        result.extend(first)
+
+        return result
+
+    def visitStarExpr(self, ctx):
+        old_line = self.line
+        self.line += 1
+        fisrt = self.visit(ctx.getChild(0))
+        result = [Instruction("split", (old_line + 1, self.line + 1))]
+        result.extend(fisrt)
+        result.append(Instruction("jmp", old_line))
+        self.line += 1
+        return result
+
+    def visitPlusExpr(self, ctx):
+        old_line = self.line
+        result = self.visit(ctx.getChild(0))
+        result.append(Instruction("split", (old_line, self.line + 1)))
+        self.line += 1
+        return result
+
+    def visitAtomExpr(self, ctx):
+        return self.visit(ctx.atom())
+
+    def visitCharExpr(self, ctx):
+        self.line += 1
+        return [Instruction("char", ctx.getText())]
+
+    def visitParExpr(self, ctx):
+        return self.visit(ctx.expr())
 
 
-def parse_simple(string, line):  # string without '|'
-    result = []
-    i = 0
-    while i < len(string):
-        if (i < len(string) - 1) and (string[i + 1] in {'?', '*', '+'}):
-            if string[i + 1] == '?':
-                result.append(Instruction("split", (line + 1, line + 2)))
-                result.append(Instruction("char", string[i]))
-                line += 2
-            if string[i + 1] == '*':
-                result.append(Instruction("split", (line + 1, line + 3)))
-                result.append(Instruction("char", string[i]))
-                result.append(Instruction("jmp", line))
-                line += 3
-            if string[i + 1] == '+':
-                result.append(Instruction("char", string[i]))
-                result.append(Instruction("split", (line, line + 2)))
-                line += 2
-            i += 2
-            continue
-        result.append(Instruction("char", string[i]))
-        line += 1
-        i += 1
-    return result
+def calc() -> float:
+    stream = InputStream(regular)
 
+    lexer = GrammarLexer(stream)
+    stream = CommonTokenStream(lexer)
+    parser = GrammarParser(stream)
+    tree = parser.start()
 
-def parse(string, line=0):
-    if "|" not in string:
-        return parse_simple(string, line)
-
-    result = []
-    delimiter = string.find('|')
-
-    first_begin = line + 1
-    first = parse(string[:delimiter], first_begin)
-
-    second_begin = first_begin + len(first) + 1
-    second = parse(string[delimiter + 1:], second_begin)
-
-    result.append(Instruction("split", (first_begin, second_begin)))
-    result.extend(first)
-    result.append(Instruction("jmp", second_begin + len(second)))
-    result.extend(second)
-    return result
+    visitor = CalcVisitor()
+    return visitor.visit(tree)
 
 
 def check(instructions, line, word, index=0):
@@ -132,14 +104,20 @@ def check(instructions, line, word, index=0):
         return (check(instructions, args[0], word, index) or
                 check(instructions, args[1], word, index))
 
+def print_instructions(result):
+    line = 0
+    for instruction in result:
+        if instruction.command == "split":
+            print(line, "split", instruction.args[0], instruction.args[1])
+        else:
+            print(line, instruction.command,
+                  instruction.args if instruction.args is not None else "")
+        line += 1
 
-def solve():
-    instructions = parse(input())
-    instructions.append(Instruction("match"))
 
-    # print_instructions(instructions)
-
-    return check(instructions, 0, input())
-
-
-print(solve())
+if __name__ == '__main__':
+    regular = input()
+    result = calc()
+    
+    print_instructions(result)
+    print(check(result, 0, input()))

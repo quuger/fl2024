@@ -13,31 +13,53 @@ class Instruction:
 
 class CalcVisitor(GrammarVisitor):
     line = 0
-    def visitStart(self, ctx):
-        result =  self.visit(ctx.word())
+
+    def visitRegex(self, ctx):
+        result = self.visit(ctx.unionExp())
         self.line += 1
         return result + [Instruction("match")]
 
-    def visitOrExpr(self, ctx):
-        first_begin = self.line + 1
-        self.line += 1
-        first = self.visit(ctx.left)
+    def helper(self, ctx, child_id):
+        if ctx.getChildCount() == 1:
+            return self.visit(ctx.getChild(0))
+        if child_id == ctx.getChildCount() - 1:
+            return self.visit(ctx.getChild(child_id))
 
-        second_begin = first_begin + len(first) + 1
+        current_begin = self.line + 1
         self.line += 1
-        second = self.visit(ctx.right)
+        current = self.visit(ctx.getChild(child_id))
 
-        result = [Instruction("split", (first_begin, second_begin))]
-        result.extend(first)
-        result.append(Instruction("jmp", second_begin + len(second)))
-        result.extend(second)
+        next_begin = current_begin + len(current) + 1
+        self.line += 1
+        next = self.helper(ctx, child_id + 2)
+
+        result = [Instruction("split", (current_begin, next_begin))]
+        result.extend(current)
+        result.append(Instruction("jmp", next_begin + len(next)))
+        result.extend(next)
 
         return result
 
-    def visitConcExpr(self, ctx):
-        first = self.visit(ctx.getChild(0))
-        second = self.visit(ctx.getChild(1))
-        return first + second
+    def visitOrExpr(self, ctx):
+        return self.helper(ctx, 0)
+
+    def visitConcatExpr(self, ctx):
+        result = []
+        for child_id in range(ctx.getChildCount()):
+            result += self.visit(ctx.getChild(child_id))
+        return result
+
+    def visitRepeatExpr(self, ctx):
+        if ctx.op is None:
+            return self.visitAtomExpr(ctx)
+        op = ctx.op.text
+        if op == '+':
+            return self.visitPlusExpr(ctx)
+        if op == '*':
+            return self.visitStarExpr(ctx)
+        if op == '?':
+            return self.visitQuesExpr(ctx)
+        return self.visitErrorNode(ctx)
 
     def visitQuesExpr(self, ctx):
         old_line = self.line + 1
@@ -83,7 +105,7 @@ def calc() -> float:
     lexer = GrammarLexer(stream)
     stream = CommonTokenStream(lexer)
     parser = GrammarParser(stream)
-    tree = parser.start()
+    tree = parser.regex()
 
     visitor = CalcVisitor()
     return visitor.visit(tree)
@@ -104,6 +126,7 @@ def check(instructions, line, word, index=0):
         return (check(instructions, args[0], word, index) or
                 check(instructions, args[1], word, index))
 
+
 def print_instructions(result):
     line = 0
     for instruction in result:
@@ -117,8 +140,18 @@ def print_instructions(result):
 
 if __name__ == '__main__':
     regular = input()
-    result = calc()
-    
-    # print_instructions(result)
+    instructions = calc()
 
-    print(check(result, 0, input()))
+    # print_instructions(instructions)
+
+    print(check(instructions, 0, input()))
+
+
+# 0 split 1 5
+# 1 split 2 4
+# 2 char a
+# 3 jmp 1
+# 4 jmp 7
+# 5 char b
+# 6 split 5 7
+# 7 match

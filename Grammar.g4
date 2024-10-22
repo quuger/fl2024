@@ -1,20 +1,24 @@
 grammar Grammar;
 
-start: word EOF;
+regex: unionExp EOF;
 
-word: left=expr '|' right=word     # orExpr
-    | expr                         # exprExpr
+unionExp
+    : concatExp ('|' concatExp)*    # orExpr
     ;
 
-expr:   left=expr right=expr       # concExpr
-    |   atom '?'                   # quesExpr
-    |   atom '*'                   # starExpr
-    |   atom '+'                   # plusExpr
-    |   atom                       # atomExpr
-    ;
-atom: CHAR                         # charExpr
-    | '(' expr ')'                 # parExpr
+concatExp
+    : repeatExp+                    # concatExpr
     ;
 
-CHAR: [a-zA-Z];
-WS: [\t\r\n]+ -> skip;
+repeatExp
+: atom (op='*' | op='+' | op='?')?           # repeatExpr
+    ;
+
+atom
+    : CHAR                          # charExpr
+    | '(' unionExp ')'              # parenExpr
+    ;
+
+CHAR: [a-zA-Z0-9];
+
+WS: [ \t\r\n]+ -> skip;

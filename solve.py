@@ -119,5 +119,6 @@ if __name__ == '__main__':
     regular = input()
     result = calc()
     
-    print_instructions(result)
+    # print_instructions(result)
+
     print(check(result, 0, input()))

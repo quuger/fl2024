@@ -3,6 +3,7 @@ from antlr4 import *
 from dist.GrammarLexer import GrammarLexer
 from dist.GrammarParser import GrammarParser
 from dist.GrammarVisitor import GrammarVisitor
+from queue import Queue
 
 
 class Instruction:
@@ -95,8 +96,8 @@ class CalcVisitor(GrammarVisitor):
         self.line += 1
         return [Instruction("char", ctx.getText())]
 
-    def visitParExpr(self, ctx):
-        return self.visit(ctx.expr())
+    def visitParenExpr(self, ctx):
+        return self.visit(ctx.unionExp())
 
 
 def calc() -> float:
@@ -111,20 +112,38 @@ def calc() -> float:
     return visitor.visit(tree)
 
 
-def check(instructions, line, word, index=0):
-    command = instructions[line].command
-    args = instructions[line].args
+class Checker:
+    instructions = []
+    word = ""
+    queue = Queue()
 
-    if command == "char":
-        return (index < len(word) and word[index] == args and
-                check(instructions, line + 1, word, index + 1))
-    if command == "match":
-        return index == len(word)
-    if command == "jmp":
-        return check(instructions, args, word, index)
-    if command == "split":
-        return (check(instructions, args[0], word, index) or
-                check(instructions, args[1], word, index))
+    def __init__(self, instructions_, word_):
+        self.instructions = instructions_
+        self.word = word_
+        self.queue.put((0, 0))
+
+    def check(self):  # Queue(line, index)
+        while not self.queue.empty():
+            (line, index) = self.queue.get()
+            command = self.instructions[line].command
+            args = self.instructions[line].args
+
+            if command == "char":
+                if index < len(self.word) and self.word[index] == args:
+                    self.queue.put((line + 1, index + 1))
+                continue
+            if command == "match":
+                if index == len(self.word):
+                    return True
+                continue
+            if command == "jmp":
+                self.queue.put((args, index))
+                continue
+            if command == "split":
+                self.queue.put((args[0], index))
+                self.queue.put((args[1], index))
+                continue
+        return False
 
 
 def print_instructions(result):
@@ -144,14 +163,4 @@ if __name__ == '__main__':
 
     # print_instructions(instructions)
 
-    print(check(instructions, 0, input()))
-
-
-# 0 split 1 5
-# 1 split 2 4
-# 2 char a
-# 3 jmp 1
-# 4 jmp 7
-# 5 char b
-# 6 split 5 7
-# 7 match
+    print(Checker(instructions, input()).check())
